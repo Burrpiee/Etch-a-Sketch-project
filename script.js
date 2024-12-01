@@ -10,6 +10,11 @@ function clearContainer() {
     }
 }
 
+function colorRandomizer() {
+    const randomNum = () => {return Math.floor(Math.random() * 255);}
+    return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+}
+
 function createSquares() {
     clearContainer();
     for (i = 0; i < numOfSq**2; i++){
@@ -18,7 +23,7 @@ function createSquares() {
         sq.style.width = `${containerWidth / numOfSq}px`;
         container.appendChild(sq);
         sq.addEventListener("mouseenter", () =>{
-            sq.classList.add("hover");
+            sq.style.backgroundColor = colorRandomizer();
         })
     }
 }
