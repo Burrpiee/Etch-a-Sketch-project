@@ -1,8 +1,9 @@
 const container = document.querySelector("#container");
 const containerWidth = document.getElementById("container").clientWidth;
 const button = document.querySelector("button");
+const sqDiv = document.querySelector(".sqDiv");
 
-let numOfSq = 16;
+let numOfSq = 16; //default number of squares
 
 function clearContainer() {
     while(container.firstChild){
@@ -20,15 +21,27 @@ function createSquares() {
     }
 }
 
-function recalculateSquares() {
+function receiveInput() {
     let userInput = prompt("How many per side do you want?");
-    numOfSq = userInput;
+    if (userInput <= 100){
+        numOfSq = userInput;
+    }
+    else{
+        alert("Please input a number less than or equal to a 100.")
+        return null;
+    }
 }
 
 button.addEventListener("click", () => {
-    recalculateSquares();
-    createSquares();
+    if (receiveInput() != null){
+        createSquares();
+    }
+    else {
+        return;
+    }
 });
+
+
 
 createSquares();
 
