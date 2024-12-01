@@ -21,9 +21,11 @@ function createSquares() {
         const sq = document.createElement("div");
         sq.classList.add("sqDiv");
         sq.style.width = `${containerWidth / numOfSq}px`;
+        sq.style.opacity = 0;
         container.appendChild(sq);
         sq.addEventListener("mouseenter", () =>{
             sq.style.backgroundColor = colorRandomizer();
+            sq.style.opacity = parseFloat(sq.style.opacity) + 0.1;
         })
     }
 }
