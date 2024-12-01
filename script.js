@@ -1,7 +1,6 @@
 const container = document.querySelector("#container");
 const containerWidth = document.getElementById("container").clientWidth;
 const button = document.querySelector("button");
-const sqDiv = document.querySelector(".sqDiv");
 
 let numOfSq = 16; //default number of squares
 
@@ -18,6 +17,9 @@ function createSquares() {
         sq.classList.add("sqDiv");
         sq.style.width = `${containerWidth / numOfSq}px`;
         container.appendChild(sq);
+        sq.addEventListener("mouseenter", () =>{
+            sq.classList.add("hover");
+        })
     }
 }
 
@@ -33,15 +35,13 @@ function receiveInput() {
 }
 
 button.addEventListener("click", () => {
-    if (receiveInput() != null){
+    if (receiveInput() !== null){
         createSquares();
     }
     else {
         return;
     }
 });
-
-
 
 createSquares();
 

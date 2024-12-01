@@ -22,4 +22,8 @@ h1{
     aspect-ratio: 1 / 1;
 }
 
+.sqDiv.hover{
+    background-color: black;
+}
+
 
